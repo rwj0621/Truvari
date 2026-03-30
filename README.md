@@ -35,15 +35,27 @@
 
         python step01_add_vaf.py
 ### 2. 将BND改为单条目
+* nanomansv
 
-        python step02_merge_BND.py \
+       python step02_merge_BND.py \
         -i /data/renweijie/Softwares/SV_tools/nanomonsv/HCC1395_PacBio_output/HCC1395_tumor/HCC1395_tumor_PacBio.nanomonsv.result_vaf.vcf \
         -o /data/renweijie/Softwares/SV_tools/nanomonsv/HCC1395_PacBio_output/HCC1395_tumor/filtered_vcf/step02_single_BND.vcf
+* severus
+
+        python step02_merge_BND.py \
+        -i /data/renweijie/Softwares/SV_tools/severus/HCC1395_Somatic_SV_output/somatic_SVs/severus_somatic_vaf.vcf \
+        -o /data/renweijie/Softwares/SV_tools/severus/HCC1395_Somatic_SV_output/somatic_SVs/filtered_vcf/step02_single_BND.vcf
 ### 3.将BND转换为具体的SV类型
+* nanomansv
 
        python step03_BND_to_sv.py \
        -i /data/renweijie/Softwares/SV_tools/nanomonsv/HCC1395_PacBio_output/HCC1395_tumor/filtered_vcf/step02_single_BND.vcf \
        -o /data/renweijie/Softwares/SV_tools/nanomonsv/HCC1395_PacBio_output/HCC1395_tumor/filtered_vcf/step03_SVType.vcf
+* nanomansv
+
+       python step03_BND_to_sv.py \
+       -i /data/renweijie/Softwares/SV_tools/severus/HCC1395_Somatic_SV_output/somatic_SVs/filtered_vcf/step02_single_BND.vcf \
+       -o /data/renweijie/Softwares/SV_tools/severus/HCC1395_Somatic_SV_output/somatic_SVs/filtered_vcf/step03_SVType.vcf
 ### 4.过滤SV 并生成总的和分SV类型的结果
 * 只保留标准染色体
 * 只保留变异大小 >50bp
@@ -52,7 +64,7 @@
 * 运行脚本
 
         python step04_filter.py \
-       -i /data/renweijie/Softwares/SV_tools/nanomonsv/HCC1395_PacBio_output/HCC1395_tumor/filtered_vcf/step03_SVType.vcf 
+       -i /data/renweijie/Softwares/SV_tools/severus/HCC1395_Somatic_SV_output/somatic_SVs/filtered_vcf/step03_SVType.vcf 
         
 
    
