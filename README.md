@@ -95,18 +95,18 @@
 * -o 输出文件路径
 
         truvari bench \
-  -b /data/renweijie/Softwares/SV_tools/severus/HCC1395_Somatic_SV_output/somatic_SVs/filtered_vcf/step04_filtered/TRA_134.vcf.gz \
-  -c /data/renweijie/Softwares/SV_tools/sniffles2/filtered_vcf/step04_filtered/TRA_131.vcf.gz \
-  -o /data/renweijie/Softwares/Truvari/severus_sniffles2_output/HCC1395_TRA \
-  --refdist 500 \
-  --typeignore \
-  --pctsize 0.7 \
-  -p 0 \
-  --dup-to-ins \
-  -s 0 \
-  -S 0 \
-  --sizemax 100000000 \
-  --passonly
+        -b /data/renweijie/Softwares/SV_tools/severus/HCC1395_Somatic_SV_output/somatic_SVs/filtered_vcf/step04_filtered/TRA_134.vcf.gz \
+        -c /data/renweijie/Softwares/SV_tools/sniffles2/filtered_vcf/step04_filtered/TRA_131.vcf.gz \
+        -o /data/renweijie/Softwares/Truvari/severus_sniffles2_output/HCC1395_TRA \
+        --refdist 500 \
+        --typeignore \
+        --pctsize 0.7 \
+        -p 0 \
+        --dup-to-ins \
+        -s 0 \
+        -S 0 \
+        --sizemax 100000000 \
+        --passonly
 ## 五、绘制断点偏移图
 根据Truvari结果绘制断点偏移图 分SV大小
 ### 1.配置绘图环境
