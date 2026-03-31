@@ -174,7 +174,7 @@
 
         ./SURVIVOR merge /data/renweijie/Softwares/Truvari/HCC1395_merged_SV/step01_severus_merged.txt 10 1 1 0 0 50 /data/renweijie/Softwares/Truvari/HCC1395_merged_SV/step01_severus_consensus.vcf
 ### 4.找nanomansv和sniffles2共识SV
-思路：合并三者共识SV 与 nanomansv和sniffles2共识SV，仅筛选合并后SUPP=1的结果（应该是38）保留 nanomansv 断点
+思路：合并 三者共识SV 与 nanomansv和sniffles2共识SV，仅筛选合并后SUPP=1的结果（应该是38）保留 nanomansv 断点
 * 创建合并vcf列表
 * 删除所有 Windows 换行符
   
@@ -189,6 +189,36 @@
 * 仅提取 SUPP=1的结果
 
         bcftools view -i 'INFO/SUPP=="1"' /data/renweijie/Softwares/Truvari/HCC1395_merged_SV/step02_nanomansv_sniffles2_only_consensus.vcf -Ov -o /data/renweijie/Softwares/Truvari/HCC1395_merged_SV/step03_nanomansv_sniffles2_no_severus.vcf
+### 5.找仅nanomansv召回的 TP
+* 创建合并vcf列表
+* 删除所有 Windows 换行符
+  
+        sed -i 's/\r//g' /data/renweijie/Softwares/Truvari/HCC1395_merged_SV/step04_nanomansv_TP_consensus.txt
+
+* 确保文件末尾有一个换行符
+  
+        sed -i '$a\' /data/renweijie/Softwares/Truvari/HCC1395_merged_SV/step04_nanomansv_TP_consensus.txt
+* 运行survivor
+
+        ./SURVIVOR merge /data/renweijie/Softwares/Truvari/HCC1395_merged_SV/step04_nanomansv_TP_consensus.txt 10 1 1 0 0 50 /data/renweijie/Softwares/Truvari/HCC1395_merged_SV/step04_nanomansv_TP_consencus.vcf
+* 仅提取 SUPP=1的结果
+
+        bcftools view -i 'INFO/SUPP=="1"' /data/renweijie/Softwares/Truvari/HCC1395_merged_SV/step04_nanomansv_TP_consencus.vcf -Ov -o /data/renweijie/Softwares/Truvari/HCC1395_merged_SV/step04_nanomansv_TP_only.vcf
+### 5.找仅sniffles2召回的 TP
+* 创建合并vcf列表
+* 删除所有 Windows 换行符
+  
+        sed -i 's/\r//g' /data/renweijie/Softwares/Truvari/HCC1395_merged_SV/step05_sniffles2_TP_consensus.txt
+
+* 确保文件末尾有一个换行符
+  
+        sed -i '$a\' /data/renweijie/Softwares/Truvari/HCC1395_merged_SV/step05_sniffles2_TP_consensus.txt
+* 运行survivor
+
+        ./SURVIVOR merge /data/renweijie/Softwares/Truvari/HCC1395_merged_SV/step05_sniffles2_TP_consensus.txt 10 1 1 0 0 50 /data/renweijie/Softwares/Truvari/HCC1395_merged_SV/step05_sniffles2_TP_consencus.vcf
+* 仅提取 SUPP=1的结果
+
+        bcftools view -i 'INFO/SUPP=="1"' /data/renweijie/Softwares/Truvari/HCC1395_merged_SV/step05_sniffles2_TP_consencus.vcf -Ov -o /data/renweijie/Softwares/Truvari/HCC1395_merged_SV/step05_sniffles2_TP_only.vcf
 
 
        
