@@ -176,7 +176,7 @@
 ### 4.找nanomansv和sniffles2共识SV
 思路：合并三者共识SV 与 nanomansv和sniffles2共识SV，仅筛选合并后SUPP=1的结果（应该是38）保留 nanomansv 断点
 * 创建合并vcf列表
-* * 删除所有 Windows 换行符
+* 删除所有 Windows 换行符
   
         sed -i 's/\r//g' /data/renweijie/Softwares/Truvari/HCC1395_merged_SV/step02_nanomansv_merged.txt
 
