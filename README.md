@@ -112,18 +112,86 @@
 ### 1.配置绘图环境
 
         pip install matplotlib seaborn pandas
-### 1. DEL
+### 2.运行脚本 
 只需要修改一下参数
 * -b tp-base.vcf.gz
 * -c tp-comp.vcf.gz
 * -p 输出图的前缀
+* -d 根输出目录
 * 运行脚本
 
-        python /data/renweijie/Softwares/Truvari/breakpoint_shift/plot_breakpoint_shift_DEL.py \
+        python /data/renweijie/Softwares/Truvari/breakpoint_shift/plot_breakpoint_shift.py \
         -b /data/renweijie/Softwares/Truvari/nanomansv_severus_output/HCC1395_ALL/tp-base.vcf.gz \
         -c /data/renweijie/Softwares/Truvari/nanomansv_severus_output/HCC1395_ALL/tp-comp.vcf.gz \
-        -d /data/renweijie/Softwares/Truvari/breakpoint_shift/nanomansv_severus \
-        -p Nano_vs_severus
+        -p Nano_vs_severus \
+        -d /data/renweijie/Softwares/Truvari/breakpoint_shift/nanomansv_severus
+## 六、合并结果
+### 1. 解压缩需要的文件
+
+        gunzip -c /data/renweijie/Softwares/Truvari/nanomansv_severus_output/HCC1395_ALL/tp-base.vcf.gz > /data/renweijie/Softwares/Truvari/nanomansv_severus_output/HCC1395_ALL/tp-base.vcf
+### 2.Survari合并文件路径
+* nanomansv_severus 保留severus 
+
+        /data/renweijie/Softwares/Truvari/nanomansv_severus_output/HCC1395_ALL/tp-comp.vcf
+* severus_sniffles2 保留severus
+
+        /data/renweijie/Softwares/Truvari/severus_sniffles2_output/HCC1395_ALL/tp-base.vcf
+* severus_nanomansv_sniffles2 保留severus
+
+        /data/renweijie/Softwares/Truvari/severus_sniffles2_nanomansv_output/HCC1395_ALL/tp-base.vcf
+* severus_nanomansv_sniffles2 保留nanomansv
+
+        /data/renweijie/Softwares/Truvari/nanomansv_sniffles2_severus_output/HCC1395_ALL/tp-base.vcf
+* nanomansv_sniffles2 保留nanomansv
+
+        /data/renweijie/Softwares/Truvari/nanomansv_sniffles2_output/HCC1395_ALL/tp-base.vcf
+* 经金标准验证过的 severus TP
+
+        /data/renweijie/Softwares/SV_tools/severus/HCC1395_Somatic_SV_output/somatic_SVs/Truvari_output/severus_HCC1395_all/tp-comp.vcf
+* 经金标准验证过的 nanomansv TP
+
+        /data/renweijie/Softwares/SV_tools/nanomonsv/HCC1395_PacBio_output/HCC1395_tumor/Truvari_output/nanomansv_HCC1395_all/tp-comp.vcf
+* 经金标准验证过的 sniffles2 TP
+
+        /data/renweijie/Softwares/SV_tools/sniffles2/Truvari_output/sniffles2_HCC1395_all/tp-comp.vcf
+        
+### 3.合并severus相关结果
+* 激活survivor环境
+
+         conda activate survivor
+* 进入SURVIVOR所在目录
+
+        cd /data/renweijie/Softwares/Survivor/SURVIVOR-master/Debug
+* 创建合并vcf列表
+* 删除所有 Windows 换行符
+  
+        sed -i 's/\r//g' /data/renweijie/Softwares/Truvari/HCC1395_merged_SV/step01_severus_merged.txt
+
+* 确保文件末尾有一个换行符
+  
+        sed -i '$a\' /data/renweijie/Softwares/Truvari/HCC1395_merged_SV/step01_severus_merged.txt
+* 运行survivor
+
+        ./SURVIVOR merge /data/renweijie/Softwares/Truvari/HCC1395_merged_SV/step01_severus_merged.txt 10 1 1 0 0 50 /data/renweijie/Softwares/Truvari/HCC1395_merged_SV/step01_severus_consensus.vcf
+### 4.找nanomansv和sniffles2共识SV
+思路：合并三者共识SV 与 nanomansv和sniffles2共识SV，仅筛选合并后SUPP=1的结果（应该是38）保留 nanomansv 断点
+* 创建合并vcf列表
+* * 删除所有 Windows 换行符
+  
+        sed -i 's/\r//g' /data/renweijie/Softwares/Truvari/HCC1395_merged_SV/step02_nanomansv_merged.txt
+
+* 确保文件末尾有一个换行符
+  
+        sed -i '$a\' /data/renweijie/Softwares/Truvari/HCC1395_merged_SV/step02_nanomansv_merged.txt
+* 运行survivor
+
+        ./SURVIVOR merge /data/renweijie/Softwares/Truvari/HCC1395_merged_SV/step02_nanomansv_merged.txt 10 1 1 0 0 50 /data/renweijie/Softwares/Truvari/HCC1395_merged_SV/step02_nanomansv_sniffles2_only_consensus.vcf
+* 仅提取 SUPP=1的结果
+
+        bcftools view -i 'INFO/SUPP=="1"' /data/renweijie/Softwares/Truvari/HCC1395_merged_SV/step02_nanomansv_sniffles2_only_consensus.vcf -Ov -o /data/renweijie/Softwares/Truvari/HCC1395_merged_SV/step03_nanomansv_sniffles2_no_severus.vcf
+
+
+       
 
 
 
