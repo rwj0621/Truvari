@@ -46,6 +46,9 @@ SAVANA 里没有专门记录end，因此需要添加end
 
         
 ### 2. 将BND改为单条目
+* 进入脚本所在目录
+
+        cd /data/renweijie/Softwares/SV_tools/nanomonsv/HCC1395_PacBio_output/HCC1395_tumor/filtered_vcf
 * nanomansv
 
        python step02_merge_BND.py \
@@ -61,6 +64,17 @@ SAVANA 里没有专门记录end，因此需要添加end
         python step02_merge_BND.py \
         -i /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_somatic_vaf.vcf \
         -o /data/renweijie/Softwares/SV_tools/sniffles2/filtered_vcf/step02_single_BND.vcf
+* SAVANA
+ * 自己的结果
+        python step02_merge_BND.py \
+        -i /data/renweijie/Softwares/SV_tools/savana/HCC1395_HIFI/HCC1395.classified.somatic_vaf_end.vcf \
+        -o /data/renweijie/Softwares/SV_tools/savana/filtered_vcf/step02_single_BND.vcf
+ * 文章结果
+
+         python step02_merge_BND.py \
+        -i /data/renweijie/data/HCC1395/HCC1395_severus_variants_calls/savana_H1395.haplotagged.classified.somatic_HIFI_vaf.vcf \
+        -o /data/renweijie/Softwares/SV_tools/savana/filtered_vcf/step02_articel_single_BND.vcf
+        
 ### 3.将BND转换为具体的SV类型
 * nanomansv
 
@@ -77,6 +91,19 @@ SAVANA 里没有专门记录end，因此需要添加end
        python step03_BND_to_sv.py \
        -i /data/renweijie/Softwares/SV_tools/sniffles2/filtered_vcf/step02_single_BND.vcf \
        -o /data/renweijie/Softwares/SV_tools/sniffles2/filtered_vcf/step03_SVType.vcf
+* SAVANA
+  * 自己的结果
+
+       python step03_BND_to_sv.py \
+       -i /data/renweijie/Softwares/SV_tools/savana/filtered_vcf/step02_single_BND.vcf \
+       -o /data/renweijie/Softwares/SV_tools/savana/filtered_vcf/step03_SVType.vcf
+   * 文章结果
+
+        python step03_BND_to_sv.py \
+       -i /data/renweijie/Softwares/SV_tools/savana/filtered_vcf/step02_articel_single_BND.vcf \
+       -o /data/renweijie/Softwares/SV_tools/savana/filtered_vcf/step03_article_SVType.vcf
+            
+      
 ### 4.过滤SV 并生成总的和分SV类型的结果
 * 只保留标准染色体
 * 只保留变异大小 >50bp
@@ -94,6 +121,10 @@ SAVANA 里没有专门记录end，因此需要添加end
 
         python step04_filter.py \
        -i /data/renweijie/Softwares/SV_tools/sniffles2/filtered_vcf/step03_SVType.vcf
+* SAVANA
+
+        python step04_filter.py \
+       -i /data/renweijie/Softwares/SV_tools/savana/filtered_vcf/step03_SVType.vcf
 ## 四、Truvari两两比较
 只需要修改一下几个参数
 * -b 金标准vcf
