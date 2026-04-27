@@ -66,6 +66,8 @@ SAVANA 里没有专门记录end，因此需要添加end
         -o /data/renweijie/Softwares/SV_tools/sniffles2/filtered_vcf/step02_single_BND.vcf
 * SAVANA
  * 自己的结果
+
+   
         python step02_merge_BND.py \
         -i /data/renweijie/Softwares/SV_tools/savana/HCC1395_HIFI/HCC1395.classified.somatic_vaf_end.vcf \
         -o /data/renweijie/Softwares/SV_tools/savana/filtered_vcf/step02_single_BND.vcf
