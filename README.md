@@ -76,6 +76,12 @@ SAVANA 里没有专门记录end，因此需要添加end
          python step02_merge_BND.py \
         -i /data/renweijie/data/HCC1395/HCC1395_severus_variants_calls/savana_H1395.haplotagged.classified.somatic_HIFI_vaf.vcf \
         -o /data/renweijie/Softwares/SV_tools/savana/filtered_vcf/step02_articel_single_BND.vcf
+* GRIDSS
+
+         python /data/renweijie/Software/SV_tools/GRIDSS/HCC1395/EA_T_1/step02_merge_BND.py \
+        -i /data/renweijie/Software/SV_tools/GRIDSS/HCC1395/EA_T_1/WGS_EA_T_1.gripss.filtered.vcf \
+        -o /data/renweijie/Software/SV_tools/GRIDSS/HCC1395/EA_T_1/step02_articel_single_BND.vcf
+        
         
 ### 3.将BND转换为具体的SV类型
 * nanomansv
@@ -104,7 +110,11 @@ SAVANA 里没有专门记录end，因此需要添加end
         python step03_BND_to_sv.py \
        -i /data/renweijie/Softwares/SV_tools/savana/filtered_vcf/step02_articel_single_BND.vcf \
        -o /data/renweijie/Softwares/SV_tools/savana/filtered_vcf/step03_article_SVType.vcf
-            
+* GRIDSS
+
+        python /data/renweijie/Software/SV_tools/GRIDSS/HCC1395/EA_T_1/step03_BND_to_sv.py \
+       -i /data/renweijie/Software/SV_tools/GRIDSS/HCC1395/EA_T_1/step02_articel_single_BND.vcf \
+       -o /data/renweijie/Software/SV_tools/GRIDSS/HCC1395/EA_T_1/step03_SVType.vcf
       
 ### 4.过滤SV 并生成总的和分SV类型的结果
 * 只保留标准染色体
@@ -127,6 +137,10 @@ SAVANA 里没有专门记录end，因此需要添加end
 
         python step04_filter.py \
        -i /data/renweijie/Softwares/SV_tools/savana/filtered_vcf/step03_SVType.vcf
+* GRIDSS
+
+        python /data/renweijie/Software/SV_tools/GRIDSS/HCC1395/EA_T_1/step04_filter.py \
+       -i /data/renweijie/Software/SV_tools/GRIDSS/HCC1395/EA_T_1/step03_SVType.vcf
 ## 四、Truvari两两比较
 只需要修改一下几个参数
 * -b 金标准vcf
