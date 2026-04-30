@@ -6,8 +6,6 @@
 ### 2.nanomansv结果转换
 
         /data/renweijie/Softwares/SV_tools/nanomonsv/HCC1395_PacBio_output/HCC1395_tumor/filtered_vcf
-### 3.severus 结果转换
-### 4.sniffles2 结果转换
 ## 二、把金标准处理成Truvari可用的格式
 ### 1. [xlsx转换成tsv](https://github.com/rwj0621/Truvari/blob/main/GSD/HCC1395_truvari_process/step01_xlsx_to_tsv.py)
 * 进入Truvari环境
