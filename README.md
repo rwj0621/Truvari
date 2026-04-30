@@ -81,7 +81,7 @@ SAVANA 里没有专门记录end，因此需要添加end
         -o /data/renweijie/Software/SV_tools/GRIDSS/HCC1395/EA_T_1/step02_articel_single_BND.vcf
         
         
-### 3.将BND转换为具体的SV类型
+### 3.[将BND转换为具体的SV类型](https://github.com/rwj0621/Truvari/blob/main/process_for_Truvari/step03_BND_to_sv.py)
 * nanomansv
 
        python step03_BND_to_sv.py \
