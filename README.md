@@ -40,8 +40,9 @@
 SAVANA 里没有专门记录end，因此需要添加end
 
         python /data/renweijie/Softwares/SV_tools/savana/step01_add_vaf_end_vaf.py
+* [severus](https://github.com/rwj0621/Truvari/blob/main/Tools_add_vaf/severus_add_VAF.py)
 
-        
+        python /data/renweijie/Softwares/SV_tools/severus/HCC1395_Somatic_SV_output/preprocess_for_truvari/severus_add_VAF.py
 ### 2. 将BND改为单条目
 * 进入脚本所在目录
 
