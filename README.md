@@ -24,8 +24,7 @@
 * 运行转换脚本
 
         python /data/renweijie/data/HCC1395/HCC1395_truvari_process/HCC1395_1788_to_truvari/step02_tsv_to_vcf.py
-### 3. 分SV类型提取
-
+### 3. [分SV类型提取](https://github.com/rwj0621/Truvari/blob/main/GSD/HCC1395_truvari_process/step03_split_svtype.py)
         python /data/renweijie/data/HCC1395/HCC1395_truvari_process/HCC1395_1788_to_truvari/step03_split_svtype.py
 ## 三、过滤工具输出结果
 * 进入脚本所在目录
