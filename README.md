@@ -114,7 +114,7 @@ SAVANA 里没有专门记录end，因此需要添加end
        -i /data/renweijie/Software/SV_tools/GRIDSS/HCC1395/EA_T_1/step02_articel_single_BND.vcf \
        -o /data/renweijie/Software/SV_tools/GRIDSS/HCC1395/EA_T_1/step03_SVType.vcf
       
-### 4.过滤SV 并生成总的和分SV类型的结果
+### 4.[过滤SV](https://github.com/rwj0621/Truvari/blob/main/process_for_Truvari/step04_filter.py)并生成总的和分SV类型的结果
 * 只保留标准染色体
 * 只保留变异大小 >50bp
 * 只保留 filter pass
