@@ -9,7 +9,7 @@
 ### 3.severus 结果转换
 ### 4.sniffles2 结果转换
 ## 二、把金标准处理成Truvari可用的格式
-### 1. xlsx转换成tsv
+### 1. [xlsx转换成tsv](https://github.com/rwj0621/Truvari/blob/main/GSD/HCC1395_truvari_process/step01_xlsx_to_tsv.py)
 * 进入Truvari环境
 
         conda activate Truvari
