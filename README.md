@@ -67,11 +67,6 @@ SAVANA 里没有专门记录end，因此需要添加end
         python step02_merge_BND.py \
         -i /data/renweijie/Softwares/SV_tools/savana/HCC1395_HIFI/HCC1395.classified.somatic_vaf_end.vcf \
         -o /data/renweijie/Softwares/SV_tools/savana/filtered_vcf/step02_single_BND.vcf
-* GRIDSS
-
-         python /data/renweijie/Software/SV_tools/GRIDSS/HCC1395/EA_T_1/step02_merge_BND.py \
-        -i /data/renweijie/Software/SV_tools/GRIDSS/HCC1395/EA_T_1/WGS_EA_T_1.gripss.filtered.vcf \
-        -o /data/renweijie/Software/SV_tools/GRIDSS/HCC1395/EA_T_1/step02_articel_single_BND.vcf
 ### 3.[将BND转换为具体的SV类型](https://github.com/rwj0621/Truvari/blob/main/process_for_Truvari/step03_BND_to_sv.py)
 * nanomansv
 
@@ -92,13 +87,7 @@ SAVANA 里没有专门记录end，因此需要添加end
 
        python step03_BND_to_sv.py \
        -i /data/renweijie/Softwares/SV_tools/savana/filtered_vcf/step02_single_BND.vcf \
-       -o /data/renweijie/Softwares/SV_tools/savana/filtered_vcf/step03_SVType.vcf
-* GRIDSS
-
-        python /data/renweijie/Software/SV_tools/GRIDSS/HCC1395/EA_T_1/step03_BND_to_sv.py \
-       -i /data/renweijie/Software/SV_tools/GRIDSS/HCC1395/EA_T_1/step02_articel_single_BND.vcf \
-       -o /data/renweijie/Software/SV_tools/GRIDSS/HCC1395/EA_T_1/step03_SVType.vcf
-      
+       -o /data/renweijie/Softwares/SV_tools/savana/filtered_vcf/step03_SVType.vcf      
 ### 4.[过滤SV](https://github.com/rwj0621/Truvari/blob/main/process_for_Truvari/step04_filter.py)并生成总的和分SV类型的结果
 * 只保留标准染色体
 * 只保留变异大小 >50bp
@@ -120,6 +109,8 @@ SAVANA 里没有专门记录end，因此需要添加end
 
         python step04_filter.py \
        -i /data/renweijie/Softwares/SV_tools/savana/filtered_vcf/step03_SVType.vcf
+### 5.[Manta]()
+### 6.[GRIDSS]()
 ## 四、Truvari两两比较
 只需要修改一下几个参数
 * -b 金标准vcf
