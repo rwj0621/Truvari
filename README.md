@@ -29,7 +29,7 @@
 
         cd /data/renweijie/Softwares/SV_tools/nanomonsv/HCC1395_PacBio_output/HCC1395_tumor/filtered_vcf
 ### 1.添加vaf
-* nanomansv
+* [nanomansv](https://github.com/rwj0621/Truvari/blob/main/Tools_add_vaf/nanomansv_step01_add_vaf.py)
   
         python step01_add_vaf.py
 * sniffles2
