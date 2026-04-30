@@ -43,7 +43,7 @@ SAVANA 里没有专门记录end，因此需要添加end
 * [severus](https://github.com/rwj0621/Truvari/blob/main/Tools_add_vaf/severus_add_VAF.py)
 
         python /data/renweijie/Softwares/SV_tools/severus/HCC1395_Somatic_SV_output/preprocess_for_truvari/severus_add_VAF.py
-### 2. 将BND改为单条目
+### 2. [将BND改为单条目](https://github.com/rwj0621/Truvari/blob/main/process_for_Truvari/step02_merge_BND.py)
 * 进入脚本所在目录
 
         cd /data/renweijie/Softwares/SV_tools/nanomonsv/HCC1395_PacBio_output/HCC1395_tumor/filtered_vcf
