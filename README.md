@@ -32,7 +32,7 @@
 * [nanomansv](https://github.com/rwj0621/Truvari/blob/main/Tools_add_vaf/nanomansv_step01_add_vaf.py)
   
         python step01_add_vaf.py
-* sniffles2
+* [sniffles2](https://github.com/rwj0621/Truvari/blob/main/Tools_add_vaf/sniffles2_step01_add_vaf.py)
 
         python /data/renweijie/Softwares/SV_tools/sniffles2/filtered_vcf/step01_add_vaf.py \
         -i /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_somatic.vcf
