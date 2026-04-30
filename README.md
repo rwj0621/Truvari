@@ -109,8 +109,8 @@ SAVANA 里没有专门记录end，因此需要添加end
 
         python step04_filter.py \
        -i /data/renweijie/Softwares/SV_tools/savana/filtered_vcf/step03_SVType.vcf
-### 5.[Manta]()
-### 6.[GRIDSS]()
+### 5.[Manta](https://github.com/rwj0621/Truvari/blob/main/process_for_Truvari/Manta_process_truvari.py)
+### 6.[GRIDSS](https://github.com/rwj0621/Truvari/blob/main/process_for_Truvari/GRIDSS_Truvari_process.py)
 ## 四、Truvari两两比较
 只需要修改一下几个参数
 * -b 金标准vcf
