@@ -63,24 +63,15 @@ SAVANA 里没有专门记录end，因此需要添加end
         -i /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_somatic_vaf.vcf \
         -o /data/renweijie/Softwares/SV_tools/sniffles2/filtered_vcf/step02_single_BND.vcf
 * SAVANA
- * 自己的结果
 
-   
         python step02_merge_BND.py \
         -i /data/renweijie/Softwares/SV_tools/savana/HCC1395_HIFI/HCC1395.classified.somatic_vaf_end.vcf \
         -o /data/renweijie/Softwares/SV_tools/savana/filtered_vcf/step02_single_BND.vcf
- * 文章结果
-
-         python step02_merge_BND.py \
-        -i /data/renweijie/data/HCC1395/HCC1395_severus_variants_calls/savana_H1395.haplotagged.classified.somatic_HIFI_vaf.vcf \
-        -o /data/renweijie/Softwares/SV_tools/savana/filtered_vcf/step02_articel_single_BND.vcf
 * GRIDSS
 
          python /data/renweijie/Software/SV_tools/GRIDSS/HCC1395/EA_T_1/step02_merge_BND.py \
         -i /data/renweijie/Software/SV_tools/GRIDSS/HCC1395/EA_T_1/WGS_EA_T_1.gripss.filtered.vcf \
         -o /data/renweijie/Software/SV_tools/GRIDSS/HCC1395/EA_T_1/step02_articel_single_BND.vcf
-        
-        
 ### 3.[将BND转换为具体的SV类型](https://github.com/rwj0621/Truvari/blob/main/process_for_Truvari/step03_BND_to_sv.py)
 * nanomansv
 
@@ -98,16 +89,10 @@ SAVANA 里没有专门记录end，因此需要添加end
        -i /data/renweijie/Softwares/SV_tools/sniffles2/filtered_vcf/step02_single_BND.vcf \
        -o /data/renweijie/Softwares/SV_tools/sniffles2/filtered_vcf/step03_SVType.vcf
 * SAVANA
-  * 自己的结果
 
        python step03_BND_to_sv.py \
        -i /data/renweijie/Softwares/SV_tools/savana/filtered_vcf/step02_single_BND.vcf \
        -o /data/renweijie/Softwares/SV_tools/savana/filtered_vcf/step03_SVType.vcf
-   * 文章结果
-
-        python step03_BND_to_sv.py \
-       -i /data/renweijie/Softwares/SV_tools/savana/filtered_vcf/step02_articel_single_BND.vcf \
-       -o /data/renweijie/Softwares/SV_tools/savana/filtered_vcf/step03_article_SVType.vcf
 * GRIDSS
 
         python /data/renweijie/Software/SV_tools/GRIDSS/HCC1395/EA_T_1/step03_BND_to_sv.py \
@@ -135,10 +120,6 @@ SAVANA 里没有专门记录end，因此需要添加end
 
         python step04_filter.py \
        -i /data/renweijie/Softwares/SV_tools/savana/filtered_vcf/step03_SVType.vcf
-* GRIDSS
-
-        python /data/renweijie/Software/SV_tools/GRIDSS/HCC1395/EA_T_1/step04_filter.py \
-       -i /data/renweijie/Software/SV_tools/GRIDSS/HCC1395/EA_T_1/step03_SVType.vcf
 ## 四、Truvari两两比较
 只需要修改一下几个参数
 * -b 金标准vcf
