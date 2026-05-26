@@ -131,6 +131,18 @@ SAVANA 里没有专门记录end，因此需要添加end
         -S 0 \
         --sizemax 100000000 \
         --passonly
+### 1.三代工具间两两比较
+* A2 服务器
+#### （1）工具召回结果两两比较
+* 激活环境
+
+        conda activate Truvari
+* 运行脚本
+
+        bash /data/renweijie/Softwares/Truvari/HCC1395_TGS_VS_output/two_tools_comparison_output/step01_run_truvari.sh
+#### （2）三个工具一致性比较
+        
+
 ## 五、绘制断点偏移图
 根据Truvari结果绘制断点偏移图 分SV大小
 ### 1.配置绘图环境
